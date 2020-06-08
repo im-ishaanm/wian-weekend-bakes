@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../css/Admin.css";
 
 import Item from "../components/Item";
+import CreateItem from "../components/CreateItem";
 
 // Redux
 import { connect } from "react-redux";
@@ -26,6 +27,7 @@ class Admin extends Component {
         <div className="items-container">
           <h2>Your Items</h2>
           <div className="items-list">{itemsMarkup}</div>
+          <CreateItem />
         </div>
       </div>
     );

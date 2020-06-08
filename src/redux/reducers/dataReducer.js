@@ -1,4 +1,4 @@
-import { GET_ITEMS } from "../types";
+import { GET_ITEMS, CREATE_ITEM } from "../types";
 
 const initialState = {
   items: null,
@@ -10,6 +10,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         items: action.payload,
+      };
+    case CREATE_ITEM:
+      return {
+        ...state,
+        items: [action.payload, ...state.items],
       };
     default:
       return state;
