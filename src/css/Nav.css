@@ -1,0 +1,19 @@
+.nav-container {
+  font-family: "News Cycle", sans-serif;
+  display: flex;
+  min-height: 12vh;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 40%;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
