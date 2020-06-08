@@ -1,0 +1,32 @@
+.admin-item-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  margin-bottom: 12px;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+  border-radius: 16px;
+}
+
+.admin-item-wrapper .price-tag {
+  background: #2a9d8f;
+  text-align: center;
+  padding-bottom: 3px;
+  border-radius: 32px;
+  color: white;
+}
+
+.image-yes {
+  color: green;
+}
+
+.image-no {
+  color: red;
+}
+
+.admin-item-wrapper:hover {
+  cursor: pointer;
+  background: #e5e5e5;
+}
