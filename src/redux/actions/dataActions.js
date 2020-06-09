@@ -40,7 +40,7 @@ export const editItem = (editItem, itemId) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.error(err);
+      console.log(err);
     });
 };
 
@@ -54,6 +54,17 @@ export const deleteItem = (itemId) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.error(err);
+      console.log(err);
     });
+};
+
+export const uploadItemImage = (formData, itemId) => (dispatch) => {
+  console.log(formData);
+  axios
+    .post(`/item/image/${itemId}`, formData)
+    .then(() => {
+      dispatch(getItems());
+      console.log("done");
+    })
+    .catch((err) => console.log(err));
 };

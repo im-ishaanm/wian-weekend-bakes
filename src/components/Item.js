@@ -9,7 +9,11 @@ import DialogContent from "@material-ui/core/DialogContent";
 
 // Redux
 import { connect } from "react-redux";
-import { editItem, deleteItem } from "../redux/actions/dataActions";
+import {
+  editItem,
+  deleteItem,
+  uploadItemImage,
+} from "../redux/actions/dataActions";
 
 class Item extends Component {
   state = {
@@ -68,6 +72,19 @@ class Item extends Component {
     this.handleClose();
   };
 
+  handleImageChange = (e) => {
+    const image = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", image, image.name);
+    console.log(formData);
+    this.props.uploadItemImage(formData, this.state.itemId);
+  };
+
+  handleImageInput = () => {
+    const fileInput = document.getElementById("imageInput");
+    fileInput.click();
+  };
+
   render() {
     const { item } = this.props;
 
@@ -102,7 +119,18 @@ class Item extends Component {
               <img className="item-image" src={item.imageUrl} alt="main" />
               <div className="update-img-div">
                 <div className="upload-check-edit">{isImageUploaded}</div>
-                <Button size="small" variant="contained" color="primary">
+                <input
+                  type="file"
+                  id="imageInput"
+                  hidden="hidden"
+                  onChange={this.handleImageChange}
+                />
+                <Button
+                  onClick={this.handleImageInput}
+                  size="small"
+                  variant="contained"
+                  color="primary"
+                >
                   Update Image
                 </Button>
               </div>
@@ -169,4 +197,4 @@ class Item extends Component {
   }
 }
 
-export default connect(null, { editItem, deleteItem })(Item);
+export default connect(null, { editItem, deleteItem, uploadItemImage })(Item);
