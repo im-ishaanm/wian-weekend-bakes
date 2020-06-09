@@ -1,4 +1,4 @@
-import { GET_ITEMS, CREATE_ITEM } from "../types";
+import { GET_ITEMS, CREATE_ITEM, EDIT_ITEM } from "../types";
 
 import axios from "axios";
 
@@ -27,5 +27,19 @@ export const createItem = (newItem) => (dispatch) => {
     })
     .catch((err) => {
       console.log(err);
+    });
+};
+
+export const editItem = (editItem, itemId) => (dispatch) => {
+  axios
+    .post(`/item/update/${itemId}`, editItem)
+    .then((res) => {
+      dispatch({
+        type: EDIT_ITEM,
+        payload: res.data,
+      });
+    })
+    .catch((err) => {
+      console.error(err);
     });
 };

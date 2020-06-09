@@ -30,3 +30,22 @@
   cursor: pointer;
   background: #e5e5e5;
 }
+
+.content-three {
+  text-align: center;
+}
+
+.delete-btn {
+  text-align: center;
+  padding: 1px 16px;
+  background: none;
+  border: 1px solid red;
+  color: red;
+  border-radius: 32px;
+}
+
+.delete-btn:hover {
+  background: red;
+  color: white;
+  cursor: pointer;
+}

@@ -100,8 +100,20 @@ class CreateItem extends Component {
             </form>
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose}>Cancel</Button>
-            <Button onClick={this.handleSubmit}>Add Item</Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={this.handleClose}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.handleSubmit}
+            >
+              Add Item
+            </Button>
           </DialogActions>
         </Dialog>
       </Fragment>

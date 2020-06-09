@@ -1,4 +1,4 @@
-import { GET_ITEMS, CREATE_ITEM } from "../types";
+import { GET_ITEMS, CREATE_ITEM, EDIT_ITEM } from "../types";
 
 const initialState = {
   items: null,
@@ -15,6 +15,14 @@ export default function (state = initialState, action) {
       return {
         ...state,
         items: [action.payload, ...state.items],
+      };
+    case EDIT_ITEM:
+      let index_to_update = state.items.findIndex(
+        (item) => item.itemId === action.payload.itemId
+      );
+      state.items[index_to_update] = action.payload;
+      return {
+        ...state,
       };
     default:
       return state;
