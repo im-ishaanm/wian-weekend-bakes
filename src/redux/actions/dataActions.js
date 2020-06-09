@@ -1,4 +1,4 @@
-import { GET_ITEMS, CREATE_ITEM, EDIT_ITEM } from "../types";
+import { GET_ITEMS, CREATE_ITEM, EDIT_ITEM, DELETE_ITEM } from "../types";
 
 import axios from "axios";
 
@@ -37,6 +37,20 @@ export const editItem = (editItem, itemId) => (dispatch) => {
       dispatch({
         type: EDIT_ITEM,
         payload: res.data,
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
+export const deleteItem = (itemId) => (dispatch) => {
+  axios
+    .delete(`/item/${itemId}`)
+    .then(() => {
+      dispatch({
+        type: DELETE_ITEM,
+        payload: itemId,
       });
     })
     .catch((err) => {

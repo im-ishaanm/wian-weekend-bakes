@@ -49,3 +49,24 @@
   color: white;
   cursor: pointer;
 }
+
+.image-container {
+  display: flex;
+  margin-top: 12px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.update-img-div {
+  text-align: center;
+}
+
+.upload-check-edit {
+  margin-bottom: 20px;
+}
+
+.item-image {
+  border-radius: 40px;
+  width: 50%;
+  height: 50%;
+}

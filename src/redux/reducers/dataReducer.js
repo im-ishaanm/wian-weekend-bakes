@@ -1,4 +1,4 @@
-import { GET_ITEMS, CREATE_ITEM, EDIT_ITEM } from "../types";
+import { GET_ITEMS, CREATE_ITEM, EDIT_ITEM, DELETE_ITEM } from "../types";
 
 const initialState = {
   items: null,
@@ -21,6 +21,14 @@ export default function (state = initialState, action) {
         (item) => item.itemId === action.payload.itemId
       );
       state.items[index_to_update] = action.payload;
+      return {
+        ...state,
+      };
+    case DELETE_ITEM:
+      let index_to_delete = state.items.findIndex(
+        (item) => item.itemId === action.payload
+      );
+      state.items.splice(index_to_delete, 1);
       return {
         ...state,
       };

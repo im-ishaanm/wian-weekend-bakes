@@ -9,7 +9,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 
 // Redux
 import { connect } from "react-redux";
-import { editItem } from "../redux/actions/dataActions";
+import { editItem, deleteItem } from "../redux/actions/dataActions";
 
 class Item extends Component {
   state = {
@@ -63,6 +63,11 @@ class Item extends Component {
     this.handleClose();
   };
 
+  handleDelete = () => {
+    this.props.deleteItem(this.state.itemId);
+    this.handleClose();
+  };
+
   render() {
     const { item } = this.props;
 
@@ -93,6 +98,15 @@ class Item extends Component {
         >
           <DialogContent>
             <h3>Edit {item.name}</h3>
+            <div className="image-container">
+              <img className="item-image" src={item.imageUrl} alt="main" />
+              <div className="update-img-div">
+                <div className="upload-check-edit">{isImageUploaded}</div>
+                <Button size="small" variant="contained" color="primary">
+                  Update Image
+                </Button>
+              </div>
+            </div>
             <form autoComplete="off" className="create-item-form">
               <label htmlFor="name">Name</label>
               <input
@@ -128,11 +142,18 @@ class Item extends Component {
           </DialogContent>
           <DialogActions>
             <Button
-              variant="contained"
+              variant="outlined"
               color="secondary"
               onClick={this.handleClose}
             >
               Cancel
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={this.handleDelete}
+            >
+              Delete Item
             </Button>
             <Button
               variant="contained"
@@ -148,4 +169,4 @@ class Item extends Component {
   }
 }
 
-export default connect(null, { editItem })(Item);
+export default connect(null, { editItem, deleteItem })(Item);

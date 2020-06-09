@@ -101,7 +101,7 @@ class CreateItem extends Component {
           </DialogContent>
           <DialogActions>
             <Button
-              variant="contained"
+              variant="outlined"
               color="secondary"
               onClick={this.handleClose}
             >
