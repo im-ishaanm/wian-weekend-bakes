@@ -1,0 +1,21 @@
+.order-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+  padding: 8px 18px 8px 8px;
+  margin-bottom: 12px;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+  border-radius: 16px;
+}
+
+.order-card:hover {
+  cursor: pointer;
+  background: #e5e5e5;
+}
+
+.order-total {
+  color: #8ac926;
+  font-weight: bold;
+}

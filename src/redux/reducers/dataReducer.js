@@ -1,7 +1,14 @@
-import { GET_ITEMS, CREATE_ITEM, EDIT_ITEM, DELETE_ITEM } from "../types";
+import {
+  GET_ITEMS,
+  CREATE_ITEM,
+  EDIT_ITEM,
+  DELETE_ITEM,
+  GET_ORDERS,
+} from "../types";
 
 const initialState = {
   items: null,
+  orders: null,
 };
 
 export default function (state = initialState, action) {
@@ -31,6 +38,11 @@ export default function (state = initialState, action) {
       state.items.splice(index_to_delete, 1);
       return {
         ...state,
+      };
+    case GET_ORDERS:
+      return {
+        ...state,
+        orders: action.payload,
       };
     default:
       return state;

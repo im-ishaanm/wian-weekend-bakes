@@ -1,4 +1,10 @@
-import { GET_ITEMS, CREATE_ITEM, EDIT_ITEM, DELETE_ITEM } from "../types";
+import {
+  GET_ITEMS,
+  CREATE_ITEM,
+  EDIT_ITEM,
+  DELETE_ITEM,
+  GET_ORDERS,
+} from "../types";
 
 import axios from "axios";
 
@@ -59,12 +65,26 @@ export const deleteItem = (itemId) => (dispatch) => {
 };
 
 export const uploadItemImage = (formData, itemId) => (dispatch) => {
-  console.log(formData);
   axios
     .post(`/item/image/${itemId}`, formData)
     .then(() => {
       dispatch(getItems());
-      console.log("done");
     })
     .catch((err) => console.log(err));
+};
+
+// Orders
+
+export const getOrders = () => (dispatch) => {
+  axios
+    .get("/orders")
+    .then((res) => {
+      dispatch({
+        type: GET_ORDERS,
+        payload: res.data,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };

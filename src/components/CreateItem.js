@@ -54,8 +54,10 @@ class CreateItem extends Component {
   render() {
     return (
       <Fragment>
-        <div className="create-item-button-wrapper">
-          <button onClick={this.handleOpen}>Add Item</button>
+        <div className="">
+          <Button variant="contained" color="primary" onClick={this.handleOpen}>
+            Add Item
+          </Button>
         </div>
         <Dialog
           className="create-item-form-dialog"
