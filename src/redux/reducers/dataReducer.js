@@ -6,12 +6,15 @@ import {
   GET_ORDERS,
   DELETE_ORDER,
   ADD_TO_CART,
+  GET_CART_ITEMS,
+  REMOVE_FROM_CART,
 } from "../types";
 
 const initialState = {
   items: null,
   orders: null,
   cart: [],
+  total: 0,
 };
 
 export default function (state = initialState, action) {
@@ -58,6 +61,7 @@ export default function (state = initialState, action) {
 
     case ADD_TO_CART:
       let itemOrder = {};
+
       let itemIndex = state.items.findIndex(
         (item) => item.itemId === action.payload
       );
@@ -69,12 +73,38 @@ export default function (state = initialState, action) {
         }
       });
       if (!found) {
+        itemOrder.itemId = state.items[itemIndex].itemId;
         itemOrder.name = state.items[itemIndex].name;
+        itemOrder.price = state.items[itemIndex].price;
         itemOrder.quantity = 1;
         state.cart.push(itemOrder);
       }
-      console.log(state.cart);
+      state.total += parseInt(state.items[itemIndex].price, 10);
+      return {
+        ...state,
+      };
 
+    case REMOVE_FROM_CART:
+      state.cart.forEach((cartItem) => {
+        if (cartItem.itemId === action.payload) {
+          cartItem.quantity -= 1;
+          state.total -= cartItem.price;
+        }
+      });
+      return {
+        ...state,
+      };
+
+    case GET_CART_ITEMS:
+      state.cart.forEach((cartItem, cartItemIndex) => {
+        if (cartItem.quantity === 0) {
+          state.cart.splice(cartItemIndex, 1);
+        }
+      });
+      console.log(state.cart, state.total);
+      return {
+        ...state,
+      };
     default:
       return state;
   }

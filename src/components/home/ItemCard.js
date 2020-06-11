@@ -3,11 +3,12 @@ import React, { Component } from "react";
 import "../../css/home/ItemCard.css";
 
 import { connect } from "react-redux";
-import { addToCart } from "../../redux/actions/dataActions";
+import { addToCart, removeFromCart } from "../../redux/actions/dataActions";
 
 class ItemCard extends Component {
   state = {
     itemId: "",
+    cartQuantity: 0,
   };
 
   componentDidMount() {
@@ -18,12 +19,33 @@ class ItemCard extends Component {
   }
 
   handleAddToCart = () => {
-    console.log(this.state.itemId);
     this.props.addToCart(this.state.itemId);
+    this.setState({
+      cartQuantity: this.state.cartQuantity + 1,
+    });
+  };
+
+  handleRemoveFromCart = () => {
+    this.props.removeFromCart(this.state.itemId);
+    this.setState({
+      cartQuantity: this.state.cartQuantity - 1,
+    });
   };
 
   render() {
     const { item } = this.props;
+
+    let removeItemMarkup =
+      this.state.cartQuantity > 0 ? (
+        <button
+          onClick={this.handleRemoveFromCart}
+          className="remove-item-home change-item-quantity"
+        >
+          -
+        </button>
+      ) : (
+        " "
+      );
 
     return (
       <div className="card-container-home">
@@ -35,9 +57,14 @@ class ItemCard extends Component {
           <p className="desc-home">{item.desc}</p>
           <div className="selector-home">
             <p className="price-home">Rs. {item.price}/-</p>
-            <button onClick={this.handleAddToCart} className="add-item-home">
-              Add to Cart
+            <button
+              onClick={this.handleAddToCart}
+              className="add-item-home change-item-quantity"
+            >
+              +
             </button>
+            {removeItemMarkup}
+            <p>{this.state.cartQuantity}</p>
           </div>
         </div>
       </div>
@@ -45,4 +72,4 @@ class ItemCard extends Component {
   }
 }
 
-export default connect(null, { addToCart })(ItemCard);
+export default connect(null, { addToCart, removeFromCart })(ItemCard);

@@ -54,19 +54,33 @@
   color: white;
 }
 
-.add-item-home {
-  font-family: "News Cycle", sans-serif;
-  color: #3a86ff;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border: 1px solid #3a86ff;
+.change-item-quantity {
   background: none;
-  border-radius: 40px;
+  border-radius: 4px;
   padding: 4px 12px;
   transition-duration: 200ms;
   transition-timing-function: ease-in-out;
   transition-property: color, background, cursor;
   outline: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: "News Cycle", sans-serif;
+}
+
+.add-item-home {
+  color: #3a86ff;
+  border: 1px solid #3a86ff;
+}
+
+.remove-item-home {
+  color: red;
+  border: 1px solid red;
+}
+
+.remove-item-home:hover {
+  color: white;
+  background: red;
+  cursor: pointer;
 }
 
 .add-item-home:hover {

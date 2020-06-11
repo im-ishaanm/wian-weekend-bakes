@@ -6,6 +6,8 @@ import {
   GET_ORDERS,
   DELETE_ORDER,
   ADD_TO_CART,
+  GET_CART_ITEMS,
+  REMOVE_FROM_CART,
 } from "../types";
 
 import axios from "axios";
@@ -107,9 +109,24 @@ export const deleteOrder = (orderID) => (dispatch) => {
 
 // Cart Actions
 
+export const getCartItems = () => (dispatch) => {
+  dispatch({
+    type: GET_CART_ITEMS,
+  });
+};
+
 export const addToCart = (itemId) => (dispatch) => {
   dispatch({
     type: ADD_TO_CART,
     payload: itemId,
   });
+  dispatch(getCartItems());
+};
+
+export const removeFromCart = (itemId) => (dispatch) => {
+  dispatch({
+    type: REMOVE_FROM_CART,
+    payload: itemId,
+  });
+  dispatch(getCartItems());
 };
