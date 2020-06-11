@@ -4,6 +4,7 @@ import {
   EDIT_ITEM,
   DELETE_ITEM,
   GET_ORDERS,
+  DELETE_ORDER,
 } from "../types";
 
 const initialState = {
@@ -43,6 +44,14 @@ export default function (state = initialState, action) {
       return {
         ...state,
         orders: action.payload,
+      };
+    case DELETE_ORDER:
+      let order_index = state.orders.findIndex(
+        (order) => order.orderID === action.payload
+      );
+      state.orders.splice(order_index, 1);
+      return {
+        ...state,
       };
     default:
       return state;

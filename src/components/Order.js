@@ -8,13 +8,26 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 
+// Redux
+import { connect } from "react-redux";
+import { deleteOrder } from "../redux/actions/dataActions";
+
 class Order extends Component {
   state = {
     open: false,
+    orderID: "",
   };
 
+  componentDidMount() {
+    const { order } = this.props;
+    this.setState({
+      orderID: order.orderID,
+    });
+  }
+
   handleDelete = () => {
-    console.log("delete");
+    this.props.deleteOrder(this.state.orderID);
+    this.handleClose();
   };
 
   handleOpen = () => {
@@ -108,4 +121,4 @@ class Order extends Component {
   }
 }
 
-export default Order;
+export default connect(null, { deleteOrder })(Order);

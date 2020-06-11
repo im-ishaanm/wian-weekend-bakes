@@ -4,6 +4,7 @@ import {
   EDIT_ITEM,
   DELETE_ITEM,
   GET_ORDERS,
+  DELETE_ORDER,
 } from "../types";
 
 import axios from "axios";
@@ -82,6 +83,20 @@ export const getOrders = () => (dispatch) => {
       dispatch({
         type: GET_ORDERS,
         payload: res.data,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const deleteOrder = (orderID) => (dispatch) => {
+  axios
+    .delete(`/order/${orderID}`)
+    .then(() => {
+      dispatch({
+        type: DELETE_ORDER,
+        payload: orderID,
       });
     })
     .catch((err) => {
