@@ -19,3 +19,27 @@
   color: #8ac926;
   font-weight: bold;
 }
+
+.order-dialog {
+  font-family: "News Cycle", sans-serif;
+}
+
+.order-id {
+  font-size: 1.2rem;
+  color: #3a86ff;
+}
+
+.order-dialog hr {
+  margin: 12px 0;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.order-headers p {
+  font-weight: bold;
+}
