@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import "../css/Order.css";
+import "../../css/admin/Order.css";
 import dayjs from "dayjs";
 
 // Material UI
@@ -10,7 +10,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 
 // Redux
 import { connect } from "react-redux";
-import { deleteOrder } from "../redux/actions/dataActions";
+import { deleteOrder } from "../../redux/actions/dataActions";
 
 class Order extends Component {
   state = {
@@ -68,9 +68,12 @@ class Order extends Component {
         >
           <DialogContent>
             <h2>
-              Review order of ID{" "}
-              <span className="order-id">{order.orderID}</span>
+              Order ID
+              <span className="order-id">{" " + order.orderID}</span>
             </h2>
+            <h3>
+              Order placed on {dayjs(order.submittedOn).format("DD/MM/YYYY")}
+            </h3>
             <div className="user-details">
               <h3>Name</h3>
               <p>{order.name}</p>

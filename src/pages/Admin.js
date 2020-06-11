@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import "../css/Admin.css";
+import "../css/admin/Admin.css";
 
-import Item from "../components/Item";
-import CreateItem from "../components/CreateItem";
-import Order from "../components/Order";
+import Item from "../components/admin/Item";
+import CreateItem from "../components/admin/CreateItem";
+import Order from "../components/admin/Order";
 
 // Redux
 import { connect } from "react-redux";
@@ -21,7 +21,7 @@ class Admin extends Component {
     let itemsMarkup = items ? (
       items.map((item) => <Item key={item.itemId} item={item} />)
     ) : (
-      <p>Loading Items</p>
+      <p>No Items Found</p>
     );
 
     let ordersMarkup = orders ? (

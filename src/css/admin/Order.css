@@ -16,7 +16,7 @@
 }
 
 .order-total {
-  color: #8ac926;
+  color: #66921e;
   font-weight: bold;
 }
 
@@ -25,8 +25,7 @@
 }
 
 .order-id {
-  font-size: 1.2rem;
-  color: #3a86ff;
+  color: slategrey;
 }
 
 .order-dialog hr {

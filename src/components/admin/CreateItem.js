@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import "../css/Admin.css";
+import "../../css/admin/Admin.css";
 
 // Material UI
 import Button from "@material-ui/core/Button";
@@ -9,7 +9,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 
 // Redux
 import { connect } from "react-redux";
-import { createItem } from "../redux/actions/dataActions";
+import { createItem } from "../../redux/actions/dataActions";
 
 class CreateItem extends Component {
   state = {
