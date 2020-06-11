@@ -2,7 +2,26 @@ import React, { Component } from "react";
 
 import "../../css/home/ItemCard.css";
 
+import { connect } from "react-redux";
+import { addToCart } from "../../redux/actions/dataActions";
+
 class ItemCard extends Component {
+  state = {
+    itemId: "",
+  };
+
+  componentDidMount() {
+    const { item } = this.props;
+    this.setState({
+      itemId: item.itemId,
+    });
+  }
+
+  handleAddToCart = () => {
+    console.log(this.state.itemId);
+    this.props.addToCart(this.state.itemId);
+  };
+
   render() {
     const { item } = this.props;
 
@@ -16,7 +35,9 @@ class ItemCard extends Component {
           <p className="desc-home">{item.desc}</p>
           <div className="selector-home">
             <p className="price-home">Rs. {item.price}/-</p>
-            <button className="add-item-home">Add to Cart</button>
+            <button onClick={this.handleAddToCart} className="add-item-home">
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
@@ -24,4 +45,4 @@ class ItemCard extends Component {
   }
 }
 
-export default ItemCard;
+export default connect(null, { addToCart })(ItemCard);

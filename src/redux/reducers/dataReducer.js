@@ -5,11 +5,13 @@ import {
   DELETE_ITEM,
   GET_ORDERS,
   DELETE_ORDER,
+  ADD_TO_CART,
 } from "../types";
 
 const initialState = {
   items: null,
   orders: null,
+  cart: [],
 };
 
 export default function (state = initialState, action) {
@@ -53,6 +55,26 @@ export default function (state = initialState, action) {
       return {
         ...state,
       };
+
+    case ADD_TO_CART:
+      let itemOrder = {};
+      let itemIndex = state.items.findIndex(
+        (item) => item.itemId === action.payload
+      );
+      let found = false;
+      state.cart.forEach((cartItem) => {
+        if (cartItem.name === state.items[itemIndex].name) {
+          cartItem.quantity += 1;
+          found = true;
+        }
+      });
+      if (!found) {
+        itemOrder.name = state.items[itemIndex].name;
+        itemOrder.quantity = 1;
+        state.cart.push(itemOrder);
+      }
+      console.log(state.cart);
+
     default:
       return state;
   }

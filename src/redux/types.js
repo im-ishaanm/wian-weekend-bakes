@@ -6,3 +6,6 @@ export const DELETE_ITEM = "DELETE_ITEM";
 
 export const GET_ORDERS = "GET_ORDERS";
 export const DELETE_ORDER = "DELETE_ORDER";
+
+export const ADD_TO_CART = "ADD_TO_CART";
+export const GET_CART_ITEMS = "GET_CART_ITEMS";

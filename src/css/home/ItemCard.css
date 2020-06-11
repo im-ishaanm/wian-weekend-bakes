@@ -66,6 +66,7 @@
   transition-duration: 200ms;
   transition-timing-function: ease-in-out;
   transition-property: color, background, cursor;
+  outline: none;
 }
 
 .add-item-home:hover {

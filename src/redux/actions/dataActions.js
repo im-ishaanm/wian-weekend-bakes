@@ -5,6 +5,7 @@ import {
   DELETE_ITEM,
   GET_ORDERS,
   DELETE_ORDER,
+  ADD_TO_CART,
 } from "../types";
 
 import axios from "axios";
@@ -102,4 +103,13 @@ export const deleteOrder = (orderID) => (dispatch) => {
     .catch((err) => {
       console.log(err);
     });
+};
+
+// Cart Actions
+
+export const addToCart = (itemId) => (dispatch) => {
+  dispatch({
+    type: ADD_TO_CART,
+    payload: itemId,
+  });
 };
