@@ -63,6 +63,15 @@
   background: none;
   border-radius: 40px;
   padding: 4px 12px;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+  transition-property: color, background, cursor;
+}
+
+.add-item-home:hover {
+  color: white;
+  background: #3a86ff;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 426px) {
