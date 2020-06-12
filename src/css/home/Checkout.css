@@ -1,0 +1,21 @@
+* {
+  font-family: "News Cycle", sans-serif;
+}
+
+.checkout-container {
+  margin: 12px 30px;
+}
+
+.no-items {
+  margin-left: 12px;
+}
+
+.total {
+  margin-left: 2px;
+  margin-top: 12px;
+}
+
+.total-amt {
+  font-size: 2rem;
+  margin-left: 2px;
+}

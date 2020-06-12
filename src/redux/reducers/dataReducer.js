@@ -90,6 +90,12 @@ export default function (state = initialState, action) {
           state.total -= cartItem.price;
         }
       });
+      // Check if any item quantities reached 0
+      state.cart.forEach((cartItem, index) => {
+        if (cartItem.quantity === 0) {
+          state.cart.splice(index, 1);
+        }
+      });
       return {
         ...state,
       };
