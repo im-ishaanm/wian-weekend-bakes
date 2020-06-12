@@ -26,10 +26,12 @@ class Checkout extends Component {
           <CartItem key={cartItem.itemId} item={cartItem} />
         ))
       ) : (
-        <h3 className="no-items">No items in your cart yet.</h3>
+        <p className="no-items">No items in your cart yet.</p>
       );
 
-    let orderFormMarkup = cart.length > 0 ? <OrderForm /> : " ";
+    let orderFormMarkup =
+      cart.length > 0 ? <OrderForm items={cart} total={total} /> : " ";
+
     return (
       <div className="checkout-container">
         <h1>Order Summary</h1>
