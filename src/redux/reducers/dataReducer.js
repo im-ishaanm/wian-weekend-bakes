@@ -6,7 +6,6 @@ import {
   GET_ORDERS,
   DELETE_ORDER,
   ADD_TO_CART,
-  GET_CART_ITEMS,
   REMOVE_FROM_CART,
 } from "../types";
 
@@ -95,16 +94,6 @@ export default function (state = initialState, action) {
         ...state,
       };
 
-    case GET_CART_ITEMS:
-      state.cart.forEach((cartItem, cartItemIndex) => {
-        if (cartItem.quantity === 0) {
-          state.cart.splice(cartItemIndex, 1);
-        }
-      });
-      console.log(state.cart, state.total);
-      return {
-        ...state,
-      };
     default:
       return state;
   }

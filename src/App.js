@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 // Pages
 import Admin from "./pages/Admin";
 import Home from "./pages/Home";
+import Checkout from "./pages/Checkout";
 
 // React Router
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -45,6 +46,7 @@ function App() {
             <Nav />
             <Route path="/admin" component={Admin} exact />
             <Route path="/" component={Home} exact />
+            <Route path="/checkout" component={Checkout} exact />
           </div>
         </Router>
       </MuiThemeProvider>

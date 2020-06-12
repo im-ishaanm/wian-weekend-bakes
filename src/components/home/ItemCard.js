@@ -11,8 +11,22 @@ class ItemCard extends Component {
     cartQuantity: 0,
   };
 
+  getCartQuantity = (cart, itemId) => {
+    cart.forEach((cartItem) => {
+      if (cartItem.itemId === itemId) {
+        this.setState({
+          cartQuantity: cartItem.quantity,
+        });
+      }
+    });
+  };
+
   componentDidMount() {
     const { item } = this.props;
+    const { cart } = this.props.data;
+
+    this.getCartQuantity(cart, item.itemId);
+
     this.setState({
       itemId: item.itemId,
     });
@@ -72,4 +86,10 @@ class ItemCard extends Component {
   }
 }
 
-export default connect(null, { addToCart, removeFromCart })(ItemCard);
+const mapStateToProps = (state) => ({
+  data: state.data,
+});
+
+export default connect(mapStateToProps, { addToCart, removeFromCart })(
+  ItemCard
+);
