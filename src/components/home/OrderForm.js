@@ -132,7 +132,11 @@ class OrderForm extends Component {
             </h4>
             <h4>
               Mode of Payment can be finalized once we get in touch with you. We
-              accept Google Pay, PayTM, Netbanking and Cash.
+              accept{" "}
+              <span id="payment-span">
+                Google Pay, PayTM, Netbanking and Cash
+              </span>
+              .
             </h4>
             <Button
               type="submit"

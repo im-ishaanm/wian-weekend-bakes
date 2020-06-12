@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/App.css";
 import Nav from "./components/Nav";
+import axios from "axios";
 
 // Pages
 import Admin from "./pages/Admin";
@@ -17,6 +18,9 @@ import store from "./redux/store";
 // Material UI stuff
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
+
+axios.defaults.baseURL =
+  "https://us-central1-wian-weekend-bakes.cloudfunctions.net/api";
 
 const themeData = {
   palette: {

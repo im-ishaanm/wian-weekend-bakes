@@ -26,3 +26,10 @@
   transform: scaleX(1);
   transform-origin: 0 50%;
 }
+
+@media only screen and (max-width: 400px) {
+  .cart-button {
+    font-size: 1.2rem;
+    margin-right: 30px;
+  }
+}
