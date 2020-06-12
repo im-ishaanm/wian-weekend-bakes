@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CartItem from "../components/home/CartItem";
+import OrderForm from "../components/home/OrderForm";
 
 import "../css/home/Checkout.css";
 
@@ -28,6 +29,7 @@ class Checkout extends Component {
         <h3 className="no-items">No items in your cart yet.</h3>
       );
 
+    let orderFormMarkup = cart.length > 0 ? <OrderForm /> : " ";
     return (
       <div className="checkout-container">
         <h1>Order Summary</h1>
@@ -50,6 +52,7 @@ class Checkout extends Component {
           <h3>Total</h3>
           <p className="total-amt">Rs. {total}/-</p>
         </div>
+        {orderFormMarkup}
       </div>
     );
   }
